@@ -1,0 +1,8 @@
+.mensajesContainer{
+    border: 1px #DBDBDB solid;
+    border-radius: 10px;
+}
+
+.barraLateral {
+    border-right: 2px solid #F7F1FF;
+}
