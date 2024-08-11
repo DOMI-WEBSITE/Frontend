@@ -2,13 +2,14 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Login } from '../interfaces/login';
 import { Observable, tap } from 'rxjs';
+import { environment } from '../../environments/environment.development';
 
 @Injectable({
   providedIn: 'root'
 })
 export class LoginService {
 
-  private backendUrl = 'https://domi-production.up.railway.app/auth/login'
+  private backendUrl = (`${environment.APIURL}/auth/login`)
 
   constructor(private httpClient: HttpClient) { }
 
