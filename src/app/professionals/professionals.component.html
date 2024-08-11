@@ -3,10 +3,10 @@
     <div class="container mb-4">
         <form action="" class="row">
             <div class="col-4 filtro1DIV">
-                <input class="filtro1" type="text" placeholder="Ubicación" [(ngModel)]="filterDireccion" name="filterDireccion">
+                <input class="filtro1" type="text" placeholder="Ubicación">
             </div>
             <div class="col-4 filtro2DIV noStyle">
-                <input class="filtro2" type="text" placeholder="Categoria" [(ngModel)]="filterServicios" name="filterServicios">
+                <input class="filtro2" type="text" placeholder="Categoria">
             </div>
             <div class="col-4 filtro3DIV noStyle row align-content-center">
                 <div class="col-10 m-0 p-0">
@@ -24,9 +24,9 @@
         <!-- <div class="cardSize py-0 mt-0 mb-5 mx-4">
             <app-card class="p-0"></app-card>
         </div> -->
-        <div *ngFor="let item of profesional | filtrarPorDireccion: filterDireccion | filtrarPorServicios: filterServicios" class="cardSize py-0 mt-0 mb-5 mx-4">
-            <app-card [profesional]="item" class="p-0"></app-card>
-        </div>
+        <div *ngFor="let item of data" class="cardSize py-0 mt-0 mb-5 mx-4">
+                <app-card [data]="item" class="p-0"></app-card>
+            </div>
     </div>
 </div>
 <app-footer></app-footer>

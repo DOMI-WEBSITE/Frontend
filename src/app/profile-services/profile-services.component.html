@@ -2,26 +2,22 @@
     <div class="row align-content-center ms-auto headerCard noStyles">
         <div class="ms-auto noStyles"></div>
     </div>
-    <div class="imgCard mb-3 px-0 mx-0"><img class="imgCard noStyles" [src]="servicios.fotoServicio"
+    <div class="imgCard mb-3 px-0 mx-0"><img class="imgCard noStyles" src="assets/profileServicesCard/profileCardBanner.svg"
             alt="serviceBanner"></div>
     <div class="ms-3 me-3">
         <div class="mb-1">
             <h1></h1>
         </div>
         <div class="mb-4">
-            <p class="subText">{{servicios.nombreServicio}}</p>
+            <p class="subText">Maquillaje</p>
         </div>
         <div class="mb-4">
-            <p class="descripcion">{{servicios.descripcionServicio}}
+            <p class="descripcion">Mis diseños son personalizados y siempre estoy al tanto de las últimas tendencias.
             </p>
         </div>
         <div class="row noStyles">
-            <form action="" [formGroup]="myForm">
-                <input type="hidden" formControlName="idServicioProfesion">
-                <!--<div class="botonWhiteDIV me-4 ms-auto"><button class="botonesWhite">Ver servicio</button></div>-->
-                <div class="botonesPurpleDIV"><button class="botonesPurple"
-                        (click)="enviarSolicitud(myForm)">Solicitar</button></div>
-            </form>
+            <div class="botonWhiteDIV me-4 ms-auto"><button class="botonesWhite">Ver servicio</button></div>
+            <div class="botonesPurpleDIV"><button class="botonesPurple">Solicitar</button></div>
         </div>
     </div>
 </div>

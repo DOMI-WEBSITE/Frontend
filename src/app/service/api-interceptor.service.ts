@@ -27,8 +27,8 @@ export class ApiInterceptorService implements HttpInterceptor {
       catchError((error: HttpErrorResponse) => {
         if (error.status === 401) {
           // Si el token ha expirado o es inválido, redirigir a la página de inicio de sesión
-           this.loginService.logout(); //desactivado para evitar mostrar login cuandoe error en professionals
-           this.router.navigate(['/login']); //desactivado para evitar mostrar login cuandoe error en professionals
+          // this.loginService.logout(); //desactivado para evitar mostrar login cuandoe error en professionals
+          // this.router.navigate(['/login']); //desactivado para evitar mostrar login cuandoe error en professionals
         }
         // Retornar un observable vacío para evitar mostrar el error en la consola
         return throwError(() => new Error('Unauthorized'));

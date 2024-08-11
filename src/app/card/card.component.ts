@@ -1,29 +1,32 @@
 import { Component, Input } from '@angular/core';
-import { RouterLink, RouterOutlet, RouterLinkActive, Router, ActivatedRoute } from '@angular/router';
-import { CommonModule, ɵnormalizeQueryParams } from '@angular/common';
+import { RouterLink, RouterOutlet, RouterLinkActive, Router } from '@angular/router';
+import { CommonModule } from '@angular/common';
+import { ServicioProfesionService } from '../service/servicio-profesion.service';
 import { FormGroup } from '@angular/forms';
-import { Profesional } from '../interfaces/profesional';
 
 @Component({
   selector: 'app-card',
   standalone: true,
-  imports: [RouterOutlet, RouterLink, RouterLinkActive, CommonModule],
+  imports: [RouterOutlet, RouterLink, RouterLinkActive, CommonModule ],
   templateUrl: './card.component.html',
   styleUrl: './card.component.css'
 })
 export class CardComponent {
-
-  @Input() profesional!: Profesional;
+  
+  @Input() data: any;
 
   ngOnInit(): void {
     // console.log('Datos recibidos en ComponenteB:', this.data);
   }
 
   myForm!: FormGroup;
-  constructor(private router: Router) { }
-
-  verProfesional(idUsuario: any) {
-    this.router.navigate(['/profile'], { queryParams: { id: idUsuario } })
+constructor(private router: Router, private servicioProfesion: ServicioProfesionService) {}
+  
+  verProfesional(id: number) {
+    this.servicioProfesion.getServicioProfesionalId(id).subscribe(data => {
+      this.servicioProfesion.setData('perfil', data);
+      this.router.navigate(['/profile']);
+    })
   }
 
 }
