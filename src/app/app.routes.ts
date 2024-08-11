@@ -22,7 +22,7 @@ export const routes: Routes = [
     { path: 'login', component: LoginComponent },
     { path: 'legal', component: LegalComponent },
     { path: 'professionals', component: ProfessionalsComponent },
-    { path: 'profile', component: ProfileComponent },
+    { path: 'profile/:id', component: ProfileComponent },
     { path: 'account', component: AccountComponent },
     { path: 'card', component: CardComponent },
     { path: 'forgotPass', component: ForgotPassComponent },

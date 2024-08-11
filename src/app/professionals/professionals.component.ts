@@ -31,7 +31,7 @@ export class ProfessionalsComponent {
       console.log(this.data);
     },
     error => {
-      console.error('Error al obtener los datos:', error);
+      console.error('Error al obtener los datos del profesional:', error);
     });
   }
 }

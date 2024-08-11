@@ -52,7 +52,7 @@
         </div>
     </div>
     <div class="m-0 p-0">
-        <button routerLink="/profile" class="verPerfilButton" onclick="verProfesional(data.idUsuario)">Ver perfil</button>
+        <button [routerLink]="['/profile', data.idUsuario]" class="verPerfilButton">Ver perfil</button>
     </div>
 </div>
 

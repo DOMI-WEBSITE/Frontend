@@ -3,13 +3,13 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { ServiciosUsuario } from '../interfaces/servicios-usuario';
 import { HttpHeaders } from '@angular/common/http';
+import { environment } from '../../environments/environment.development';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable({providedIn:'root'})
+
 export class ServicioProfesionService {
 
-  private backendUrl = 'http://localhost:8095/api/servicio-profesion'
+  private backendUrl = (`${environment.APIURL}/api/servicio-profesion`)
 
   constructor(private httpClient: HttpClient) { }
 

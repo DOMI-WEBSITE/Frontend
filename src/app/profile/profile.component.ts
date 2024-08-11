@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { RouterLink, RouterOutlet, RouterLinkActive } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import { RouterLink, RouterOutlet, RouterLinkActive, ActivatedRoute } from '@angular/router';
 import { APIrestService } from '../service/form-request.service';
 import { CommonModule } from '@angular/common';
 
@@ -17,63 +17,29 @@ import { SolicitudService } from '../service/solicitud.service';
   standalone: true,
   imports: [RouterOutlet, RouterLink, RouterLinkActive, NavBarComponent, FooterComponent, ProfileServicesComponent, CommonModule, FormsModule, ReactiveFormsModule],
   templateUrl: './profile.component.html',
-  styleUrl: './profile.component.css'
+  styleUrls: ['./profile.component.css']
 })
 
-export class ProfileComponent {
-  
+export class ProfileComponent implements OnInit {
+
   perfil: any;
 
-  // myForm!: FormGroup;
-  // solicitud!: Solicitud;
+  constructor(private fb: FormBuilder, private servicioProfesion: ServicioProfesionService, private solicitudService: SolicitudService, private location: Location, private route: ActivatedRoute) { }
 
-  constructor(private fb:FormBuilder, private servicioProfesion: ServicioProfesionService, private solicitudService: SolicitudService, private location: Location ) { 
-    
-  }
   ngOnInit(): void {
-    // this.showData();
-
-    this.perfil = this.servicioProfesion.getData('perfil');
-    console.log(this.perfil);
-  
-    // this.data = this.servicioProfesion.getData('perfil');
-    // console.log(this.data);
-    // this.formulario();
+    this.route.params.subscribe(params => {
+      const id = +params['id'];
+      this.verProfesional(id);
+    });
   }
 
-
-  // formulario(){
-  //   this.myForm = this.fb.group({
-  //     idSolicitud: [this.data?.idSolicitud || ''],
-  //     idServicioProfesion: [this.data?.idServicioProfesion || ''],
-  //     idUsuario: [this.data?.idUsuario || ''],
-  //     mensaje: [this.data?.mensaje || ''],
-  //     estado: [this.data?.estado || ''],
-  //     resena: [this.data?.resena || ''],
-  //     estrellas: [this.data?.estrellas || '']
-  //   });
-  // }
-
+  verProfesional(id: number) {
+    this.servicioProfesion.getServicioProfesionalId(id).subscribe(data => {
+      this.perfil = data;
+    })
+  }
 
   goBack() {
-    this.location.back();}
-
-  // enviarSolicitud(form: FormGroup){
-  //   if (this.myForm.valid) {
-  //     if (form.value.id && form.value.id !== 0) {
-  //       return;
-  //     }
-  //     this.solicitudService.enviarSolicitud(form.value)
-  //       .subscribe(data => {
-  //         //this.messageService.add({ severity: 'success', summary: 'Success Message', detail: 'Solicitud enviada! '});
-  //         console.log(data);
-  //       }
-  //       )
-  //   }
-  //   else {
-  //     //this.messageService.add({ severity: 'error', summary: 'Error Message', detail: 'Formulario invalido' });
-  //   }
-  // }
-  
-
+    this.location.back();
+  }
 }
