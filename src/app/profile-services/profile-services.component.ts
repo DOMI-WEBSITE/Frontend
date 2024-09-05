@@ -11,10 +11,6 @@ import { ServicioProfesionService } from '../service/servicio-profesion.service'
 })
 export class ProfileServicesComponent {
 
-  // @Input() data: any;
-
-
-
   ngOnInit(): void {
   }
 

@@ -13,6 +13,7 @@ import { CardComponent } from './card/card.component';
 import { ForgotPassComponent } from './forgot-pass/forgot-pass.component';
 import { ProfileServicesComponent } from './profile-services/profile-services.component';
 import { MensajeriaComponent } from './mensajeria/mensajeria.component';
+import { UpdateAccountComponent } from './update-account/update-account.component';
 
 export const routes: Routes = [
     { path: '', component: HomeComponent },
@@ -28,6 +29,7 @@ export const routes: Routes = [
     { path: 'forgotPass', component: ForgotPassComponent },
     { path: 'profileServicesCard', component: ProfileServicesComponent },
     { path: 'mensajeria', component: MensajeriaComponent},
+    { path: 'updateAccount', component: UpdateAccountComponent},
     // siempre ultimo
     { path: '**', component: PageNotFoundComponent },
 ];

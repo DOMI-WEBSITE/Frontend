@@ -34,8 +34,5 @@ export class ApiInterceptorService implements HttpInterceptor {
         return throwError(() => new Error('Unauthorized'));
       })
     );
-
-    
-    
   }
 }

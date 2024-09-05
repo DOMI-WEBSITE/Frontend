@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { RouterLink, RouterOutlet, RouterLinkActive, ActivatedRoute } from '@angular/router';
 import { APIrestService } from '../service/form-request.service';
+import { Perfil } from '../interfaces/perfil';
 import { CommonModule } from '@angular/common';
 
 // pages components
@@ -22,7 +23,7 @@ import { SolicitudService } from '../service/solicitud.service';
 
 export class ProfileComponent implements OnInit {
 
-  perfil: any;
+  perfil: Perfil | undefined;
 
   constructor(private fb: FormBuilder, private servicioProfesion: ServicioProfesionService, private solicitudService: SolicitudService, private location: Location, private route: ActivatedRoute) { }
 
@@ -34,11 +35,21 @@ export class ProfileComponent implements OnInit {
   }
 
   verProfesional(id: number) {
-    this.servicioProfesion.getServicioProfesionalId(id).subscribe(data => {
-      this.perfil = data;
-    })
+    this.servicioProfesion.getServicioProfesionalId(id).subscribe(
+      (data: Perfil[]) => { 
+        if (data.length > 0) {
+          this.perfil = data[0];
+          console.log("Datos del perfil recibidos:", this.perfil);
+        } else {
+          console.warn('No se encontró ningún perfil para el ID:', id);
+        }
+      },
+      error => {
+        console.error('Error al obtener el perfil', error);
+      }
+    );
   }
-
+  
   goBack() {
     this.location.back();
   }

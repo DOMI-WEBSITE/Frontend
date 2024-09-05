@@ -6,6 +6,7 @@ import { NavBarComponent } from '../navbar/navbar.component';
 import { FooterComponent } from '../footer/footer.component';
 import { ProfileServicesComponent } from '../profile-services/profile-services.component';
 import { ServiciosContratadosCardComponent } from '../servicios-contratados-card/servicios-contratados-card.component';
+import { UpdateAccountComponent } from '../update-account/update-account.component';
 
 @Component({
   selector: 'app-account',
